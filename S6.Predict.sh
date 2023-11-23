@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rpath=/code/s6.Predict_test_data.R
+pypath=/code/s6.Predict_test_data.py
 exptdir=$1
 agggrp=$2
 numcore=$3
@@ -14,7 +14,7 @@ cd $cnndir
 echo =========================================================================================
 echo "S6 Start: $(date)"
 
-Rscript $rpath -i $input -t  $numcore
+python $pypath -i $input -t  $numcore
 
 cp $agggrp.output_prediction_CNN_class0.txt /results/S6_${agggrp}.output_prediction_CNN_class0.txt
 cp $agggrp.output_prediction_CNN_class1.txt /results/S6_${agggrp}.output_prediction_CNN_class1.txt
