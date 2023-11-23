@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rpath=/code/s5.Preprocess_data_matrix_inputCNN.R
+pypath=/code/s5.Preprocess_data_matrix_inputCNN.py
 exptdir=$1
 numcore=$2
 agggrp=$3
@@ -15,7 +15,7 @@ cd $cnndir
 echo =========================================================================================
 echo "S5 Start: $(date)"
 
-Rscript $rpath -t $numcore -i $input -o $output -c $classref 
+python $pypath -t $numcore -i $input -o $output -c $classref
 
 #cp $output /results/S5_$output
 
