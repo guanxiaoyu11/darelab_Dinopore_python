@@ -4,7 +4,7 @@ exptdir=$1
 numcore=$2
 agggrp=$3
 
-rpath=/code/s3.Generate_raw_feature_table.R
+$pypath=/code/s3.Generate_raw_feature_table.py
 expt=$(basename ${exptdir})
 ftdir=${exptdir}/raw_features
 cd $ftdir
@@ -49,7 +49,7 @@ do
 		LC_ALL=C grep -h -F -w -f readstmp $nnpl >> $innnpl
 
 		#Step 2 - Generate raw features files
-		Rscript $rpath -n $innnpl -t $intsv -o ${outname}.part$filecount
+		python $pypath -n $innnpl -t $intsv -o ${outname}.part$filecount
 												   
 
 		num=$num2
