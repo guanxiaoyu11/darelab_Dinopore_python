@@ -7,7 +7,7 @@ numcore=$4
 
 cd $npdir
 
-pypath=/code/S2.py
+pypath=/code/s2.Combine_raw_nanopolish.py
 file=${exptdir}/out_nanopolish/${expt}.gm2.nanopolish_eventAlignOut.txt
 head -n 1 $file > raw_nanopolish.header
 noline=$(wc -l $file | cut -d " " -f 1)
@@ -32,7 +32,7 @@ do
 	echo Processing reads $num to $num1 in file $filecount
 
 	if [ $chk -gt 0 ]; then
-		Python $pypath -f $tmp -t $numcore -o ${out}.part${filecount} -s $noline -n $num -c $chunk
+		python $pypath -f $tmp -t $numcore -o ${out}.part${filecount} -s $noline -n $num -c $chunk
 		
 		if test -f tmp.eli; then
 			eli=$(cat tmp.eli)
